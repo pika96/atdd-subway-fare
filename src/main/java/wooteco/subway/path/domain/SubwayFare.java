@@ -28,7 +28,7 @@ public class SubwayFare {
         return sectionEdges.stream()
                 .mapToInt(SectionEdge::getFare)
                 .max()
-                .orElseThrow(() -> new SubwayCustomException(PathException.INVALID_DISTANCE_EXCEPTION));
+                .orElse(0);
     }
 
     private int getDiscountMoney(int fare, int age) {

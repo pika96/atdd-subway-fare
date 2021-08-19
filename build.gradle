@@ -43,6 +43,13 @@ dependencies {
 	compile "javax.xml.bind:jaxb-api"
 }
 
+processResources.dependsOn('copySecret')
+
+task copySecret(type: Copy) {
+	from 'submodule/application-test.yml' // submodule 디렉토리에 있는 test 설정파일을 복사한다.
+	into 'src/main/resources'
+}
+
 test {
 	useJUnitPlatform()
 }
